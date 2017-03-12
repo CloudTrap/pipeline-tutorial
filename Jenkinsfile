@@ -18,4 +18,9 @@ pipeline {
             }
         }
     }
+    post {
+      always {
+        junit 'junit-results.xml'
+      }
+    }
 }

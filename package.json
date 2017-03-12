@@ -10,9 +10,10 @@
   },
   "repository": "",
   "scripts": {
+    "bower": "bower install",
     "build": "ember build",
     "start": "ember server",
-    "test": "ember test"
+    "test": "ember test --reporter xunit --silent > junit-results.xml"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
