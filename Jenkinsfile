@@ -9,7 +9,8 @@ pipeline {
     stages {
         stage('installdeps') {
             steps {
-                sh 'yarn --global-folder .yarn-cache'
+                sh 'echo "cache=NPM-CACHE" > .npmrc'
+                sh 'npm install'
                 sh 'npm run bower'
             }
         }
