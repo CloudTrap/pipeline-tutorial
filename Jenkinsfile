@@ -20,6 +20,7 @@ pipeline {
         }
         stage('build') {
             steps {
+                sh 'printenv'
                 sh 'npm run build'
             }
         }
