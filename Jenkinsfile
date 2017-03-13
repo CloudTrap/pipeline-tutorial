@@ -1,10 +1,28 @@
+#!groovy
+
 pipeline {
-    agent { docker 'node:6.10' }
+    agent {
+      dockerfile {
+        filename 'Dockerfile'
+        args '-v /.cache/ -v /.bower/  -v /.config/configstore/'
+      }
+    }
+    environment {
+        // stupid NPM configstore package!
+        XDG_CONFIG_HOME = '.configstore'
+        // stupid NPM username package!
+        USER = 'dummyuser'
+    }
     stages {
+        stage('installdeps') {
+            steps {
+                sh 'npm install'
+                // sh 'npm run bower'
+            }
+        }
         stage('build') {
             steps {
-                sh 'npm install -g bower'
-                sh 'npm install'
+                sh 'printenv'
                 sh 'npm run build'
             }
         }
@@ -13,5 +31,10 @@ pipeline {
                   sh 'npm run test'
             }
         }
+    }
+    post {
+      always {
+        junit 'junit-results.xml'
+      }
     }
 }
