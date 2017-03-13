@@ -10,6 +10,7 @@ RUN apt-get update
 RUN apt-get install -y build-essential
 RUN apt-get install -y nodejs
 RUN apt-get install -y yarn
+RUN yarn global add phantomjs-prebuilt
 
 RUN useradd --create-home --shell /bin/bash jenkins
 USER jenkins

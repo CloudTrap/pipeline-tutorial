@@ -12,7 +12,7 @@ pipeline {
                 sh 'mv .build_npmrc .npmrc'
                 sh 'mv .build_bowerrc .bowerrc'
                 sh 'npm install'
-                sh 'npm run bower'
+                // sh 'npm run bower'
             }
         }
         stage('build') {
