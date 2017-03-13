@@ -10,10 +10,10 @@ pipeline {
         stage('installdeps') {
             steps {
                 sh 'pwd'
+                sh 'ls -la'
                 sh 'npm --version'
                 sh 'node --version'
                 sh 'yarn --version'
-                sh 'ls -la'
                 sh 'npm install'
                 sh 'npm run bower'
             }
