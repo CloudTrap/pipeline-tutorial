@@ -11,7 +11,7 @@ pipeline {
         // stupid NPM configstore package!
         XDG_CONFIG_HOME = '.configstore'
         // stupid NPM username package!
-        USER = 'dummyuser'
+        // USER = 'dummyuser'
     }
     stages {
         stage('installdeps') {
