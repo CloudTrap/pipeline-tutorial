@@ -1,7 +1,11 @@
 #!groovy
 
 pipeline {
-    agent dockerfile
+    agent {
+      dockerfile {
+        filename 'Dockerfile'
+      }
+    }
     stages {
         stage('installdeps') {
             steps {
