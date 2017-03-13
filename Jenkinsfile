@@ -9,7 +9,8 @@ pipeline {
     stages {
         stage('installdeps') {
             steps {
-                sh 'echo "cache=NPM-CACHE" > .npmrc'
+                sh 'mv .build_npmrc .npmrc'
+                sh 'mv .build_bowerrc .bowerrc'
                 sh 'npm install'
                 sh 'npm run bower'
             }
