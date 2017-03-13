@@ -4,12 +4,14 @@ pipeline {
     agent {
       dockerfile {
         filename 'Dockerfile'
-        args '-v /.config/ -v /.cache/ -v /.bower/  -v /.config/configstore/'
+        args '-v /.cache/ -v /.bower/  -v /.config/configstore/'
       }
     }
     stages {
         stage('installdeps') {
             steps {
+                // stupid NPM configstore package!
+                env.XDG_CONFIG_HOME = '.configstore'
                 sh 'npm install'
                 // sh 'npm run bower'
             }
