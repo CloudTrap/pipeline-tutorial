@@ -1,7 +1,7 @@
 #!groovy
 
 pipeline {
-    agent { docker 'ubuntu:16.04' }
+    agent dockerfile
     stages {
         stage('installdeps') {
             steps {
