@@ -14,7 +14,7 @@ pipeline {
                 sh 'npm --version'
                 sh 'node --version'
                 sh 'yarn --version'
-                sh 'npm install'
+                sh 'yarn --global-folder .yarn-cache'
                 sh 'npm run bower'
             }
         }
