@@ -7,11 +7,13 @@ pipeline {
         args '-v /.cache/ -v /.bower/  -v /.config/configstore/'
       }
     }
+    environment {
+        // stupid NPM configstore package!
+        XDG_CONFIG_HOME = '.configstore'
+    }
     stages {
         stage('installdeps') {
             steps {
-                // stupid NPM configstore package!
-                env.XDG_CONFIG_HOME = '.configstore'
                 sh 'npm install'
                 // sh 'npm run bower'
             }
