@@ -4,13 +4,12 @@ pipeline {
     agent {
       dockerfile {
         filename 'Dockerfile'
+        args '-v /.config -v /.cache -v /.bower '
       }
     }
     stages {
         stage('installdeps') {
             steps {
-                sh 'mv .build_npmrc .npmrc'
-                sh 'mv .build_bowerrc .bowerrc'
                 sh 'npm install'
                 // sh 'npm run bower'
             }

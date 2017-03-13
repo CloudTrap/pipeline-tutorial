@@ -1,7 +1,0 @@
-{
-  "storage": {
-    "packages" : ".build-bower/packages",
-    "registry" : ".build-bower/registry",
-    "links" : ".build-bower/links"
-  }
-}
